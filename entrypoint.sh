@@ -21,8 +21,8 @@ echo "Create a VM for web application"
 gcloud compute instances create-with-container $VM_SERVER_NAME \
   --image-family cos-dev \
   --image-project cos-cloud \
-  --CONTAINER_IMAGE $CONTAINER_IMAGE \
-  --CONTAINER_ENV_FILE $CONTAINER_ENV_FILE
+  --container_image $CONTAINER_IMAGE \
+  --container_env_file $CONTAINER_ENV_FILE
 
 echo "The VM server IP address"
 VM_SERVER_IP=$(gcloud compute instances list | grep ^$VM_SERVER_NAME | grep -v grep | awk '{print $5}' | grep ^[0-9])
